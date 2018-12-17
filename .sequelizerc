@@ -3,6 +3,6 @@ var path = require('path');
 module.exports = {
   'config':          path.resolve('config', 'sequelize.config.js'),
   'migrations-path': path.resolve('migrations'),
-  'models-path':     path.resolve('packages/rage', 'models'),
+  'models-path':     path.resolve('src/server', 'models'),
   'seeders-path':    path.resolve('seeders'),
 };

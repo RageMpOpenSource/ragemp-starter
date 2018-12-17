@@ -8,7 +8,10 @@ server.exe
 /idea
 /.idea
 /node_modules
-/client_packages/.listcache
+/packages
+!packages/.gitkeep
+/client_packages
+!client_packages/resources
 /maps
 .env
 conf.json

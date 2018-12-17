@@ -1,7 +1,7 @@
 {
   "name": "ragemp-starter",
   "version": "0.0.1",
-  "description": "Ready to go backend development starter for RAGE multiplayer.",
+  "description": "A RAGE:MP boilerplate.",
   "author": "rchl2 <freshieboyz+git@gmail.com>",
   "scripts": {
     "watch": "nodemon --watch packages --watch client_packages --exec \"./server.exe\"",
@@ -9,6 +9,9 @@
     "watch-client": "nodemon --watch client_packages --exec \"./server.exe\""
   },
   "devDependencies": {
+    "@types/ragemp-c": "github:CocaColaBear/types-ragemp-c#master",
+    "@types/ragemp-s": "github:CocaColaBear/types-ragemp-s#master",
+    "@types/sequelize": "^4.27.33",
     "dotenv": "6.0.0",
     "eslint": "5.3.0",
     "eslint-config-standard": "11.0.0",

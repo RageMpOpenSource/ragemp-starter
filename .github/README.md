@@ -8,13 +8,19 @@ Start your next project within seconds! This boilerplate accelerates the work yo
 
 ## Quick start
 1. Clone or download repository.
-2. Extract files to your RAGE Multiplayer server-files directory.
-3. Open bash/command prompt, switch into server directory:
-	- Type `yarn` if you are using Yarn or `npm install` if you are using NPM.
-	- Look at .env.example file and create your environment file, fill it with database credentials.
-	- Setup database using Sequelize CLI - `./node_modules/.bin/sequelize db:create`.
-	- Run migration for example table 'Vehicles' - `./node_modules/.bin/sequelize db:migrate`.
-	- Type `yarn watch` - that's it! You are ready to develop. Any changes in files in `client_packages` or `packages` directory gonna automatically restart server! :sparkles:
+2. Copy RAGE Multiplayer server-files files and paste here.
+3. Open terminal and:
+	- Type `npm install`.
+	- `cd .env.example .env`
+	- Edit .env with your configs.
+	- Create database using Sequelize CLI: `sequelize db:create`.
+	- Run migrations: `sequelize db:migrate`.
+	- Type `npm run watch`.
+	- Run watch tasks `tsc -w` or `Ctrl+Shift+B` on `src/server` and `src/client` folders.
+	- that's it! You are ready to develop. Any changes in files in `client_packages` or `packages` directory gonna automatically restart server! :sparkles:
+
+## Front-end files
+Use the `resources` folder in `client_packages` to place your html, css, js stuff.
 
 ## What's inside?
 - **[ESLint]** with JavaScript standard style config, prepared for ES6.

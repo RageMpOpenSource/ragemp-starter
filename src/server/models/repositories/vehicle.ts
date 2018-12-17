@@ -1,10 +1,10 @@
 'use strict';
 
-const logger = require('../utils/logger');
-const database = require('../database/database');
-const { randomInt } = require('../utils/helpers');
+import logger from '../../modules/utils/logger';
+import database from '../../modules/database/database';
+import { randomInt } from '../../modules/utils/helpers';
 
-function create (player, model) {
+const create = (player: PlayerMp, model: any) => {
   const primaryColor = [randomInt(0, 255), randomInt(0, 255), randomInt(0, 255)];
   const secondaryColor = [randomInt(0, 255), randomInt(0, 255), randomInt(0, 255)];
 
@@ -16,14 +16,13 @@ function create (player, model) {
       primaryColor: JSON.stringify(primaryColor),
       secondaryColor: JSON.stringify(secondaryColor)
     })
-    .then(vehicle => {
+    .then((vehicle: any) => {
       logger('vehicle', `Saved vehicle "${vehicle.name}" (Model: ${vehicle.model}) in database.`, 'info');
       spawn(vehicle);
     });
 }
-exports.create = create;
 
-function spawn (vehicle) {
+const spawn = (vehicle: any) => {
   if (vehicle.position === null) { // We can't spawn vehicle on world when we dont have position.
     return logger('vehicle', `Vehicle position is null (vehicleId: ${vehicle.id})!`, 'error');
   }
@@ -39,7 +38,7 @@ function spawn (vehicle) {
   configureCreated(createdVehicle, vehicle);
 }
 
-function configureCreated (createdVehicle, vehicleData) {
+function configureCreated(createdVehicle: any, vehicleData: any) {
   try {
     let primaryColor = JSON.parse(vehicleData.primaryColor);
     let secondaryColor = JSON.parse(vehicleData.secondaryColor);
@@ -55,10 +54,11 @@ function configureCreated (createdVehicle, vehicleData) {
 }
 
 const loadAll = () => {
-  database.vehicle.findAll().then(vehicles => {
+  database.vehicle.findAll().then((vehicles: any) => {
     for (let i = 0; i < vehicles.length; i++) {
       spawn(vehicles[i]);
     }
   });
 };
-exports.loadAll = loadAll;
+
+export { create, spawn, loadAll };

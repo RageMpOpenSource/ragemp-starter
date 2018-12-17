@@ -12,26 +12,23 @@ mp.events.add({
  * Clear game chat.
  */
 const clearGameChat = () => mp.gui.execute('$("#chat_messages").html("")');
-exports.clearGameChat = clearGameChat;
 
 /**
  * Toggles chat visibility.
  * @param {boolean} value
  */
-const toggleChat = value => {
+const toggleChat = (value: boolean) => {
   globals.toggleChat = value;
   mp.gui.chat.show(value);
 };
-
-exports.toggleChat = toggleChat;
 
 /**
  * This enables or disables chat.
  * @param {boolean} value
  */
-const disableChat = value => {
+const disableChat = (value: boolean) => {
   globals.disableChat = value;
   mp.gui.chat.activate(value);
 };
 
-exports.disableChat = disableChat;
+export { disableChat, toggleChat, clearGameChat };
