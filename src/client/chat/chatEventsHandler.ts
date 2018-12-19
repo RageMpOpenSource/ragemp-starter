@@ -1,6 +1,6 @@
 'use strict';
 
-const globals = require('./rage/utils/globals');
+const globals = require('./utils/globals');
 
 mp.events.add({
   clearChat: () => clearGameChat(),

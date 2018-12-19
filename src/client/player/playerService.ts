@@ -1,4 +1,4 @@
-import { hideHudElements } from '../utils/helpers';
+const { hideHudElements } = require('./utils/helpers');
 
 /**
  * Docs about these two functions:
@@ -7,7 +7,7 @@ import { hideHudElements } from '../utils/helpers';
  */
 const preparePlayerClientView = () => {
   hideHudElements([1, 3]);
-  mp.game.player.disablePlayerVehicleRewards();
+  mp.game.player.disableVehicleRewards();
   mp.discord.update('RAGE', 'Boilerplate');
 };
 
