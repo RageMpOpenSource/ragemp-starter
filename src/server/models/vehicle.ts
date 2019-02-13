@@ -16,10 +16,10 @@ export default class Vehicle extends Model<Vehicle> {
   dimension!: number;
 
   @AllowNull(false)
-  @Column
+  @Column({ field: 'primary_color' })
   primaryColor!: string;
 
   @AllowNull(false)
-  @Column
+  @Column({ field: 'secondary_color' })
   secondaryColor!: string;
 }
