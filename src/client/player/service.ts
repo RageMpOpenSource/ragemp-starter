@@ -7,7 +7,6 @@ const { hideHudElements } = require('./utils/helpers');
  */
 const preparePlayerClientView = () => {
   hideHudElements([1, 3]);
-  mp.game.player.disableVehicleRewards();
   mp.discord.update('RAGE', 'Boilerplate');
 };
 

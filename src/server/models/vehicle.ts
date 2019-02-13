@@ -1,19 +1,25 @@
-'use strict';
-import { DataTypes, Sequelize } from "sequelize";
-import { VehicleInstance, VehicleAttributes } from "./interfaces/vehicle";
+import { Table, Column, Model, AllowNull, Default, DataType } from 'sequelize-typescript';
 
+@Table({ tableName: 'vehicles' })
+export default class Vehicle extends Model<Vehicle> {
+  @AllowNull(false)
+  @Column({ type: DataType.BIGINT })
+  model!: string;
 
-module.exports = (sequelize: Sequelize, DataTypes: DataTypes) => {
-  let Vehicle = sequelize.define<VehicleInstance, VehicleAttributes>('Vehicle', {
-    model: DataTypes.STRING,
-    position: DataTypes.TEXT,
-    dimension: DataTypes.INTEGER,
-    primaryColor: DataTypes.STRING,
-    secondaryColor: DataTypes.STRING
-  }, {});
+  @AllowNull(false)
+  @Column
+  position!: string;
 
-  Vehicle.associate = (models: any) => {
-    // Docs about associations: http://docs.sequelizejs.com/class/lib/associations/base.js~Association.html
-  };
-  return Vehicle;
-};
+  @AllowNull(false)
+  @Default(0)
+  @Column
+  dimension!: number;
+
+  @AllowNull(false)
+  @Column
+  primaryColor!: string;
+
+  @AllowNull(false)
+  @Column
+  secondaryColor!: string;
+}

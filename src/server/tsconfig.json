@@ -9,9 +9,12 @@
     "outDir": "../../packages/rage", /* Redirect output structure to the directory. */
     "strict": true, /* Enable all strict type-checking options. */
     "allowJs": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "types" : ["node", "ragemp-s", "sequelize"]
   },
   "include": [
     "**/*"
   ]
 }
+
