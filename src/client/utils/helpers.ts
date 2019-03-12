@@ -1,5 +1,7 @@
 'use strict';
 
+const hiddenHudElements: number[] = [];
+
 /**
  * Hide HUD elements from array.
  * HUD components ID: https://wiki.rage.mp/index.php?title=HUD_Components
@@ -7,9 +9,18 @@
  */
 const hideHudElements = (elements: any) => {
   for (let element of elements) {
-    mp.game.ui.hideHudComponentThisFrame(element);
+    if (hiddenHudElements.indexOf(element) === -1) hiddenHudElements.push(element);
   }
 };
+
+/**
+ * Hide HUD elements every tick
+ */
+mp.events.add('render', () => {
+  for (const element of hiddenHudElements) {
+    mp.game.ui.hideHudComponentThisFrame(element);
+  }
+});
 
 /**
  * Disable controls from array.
