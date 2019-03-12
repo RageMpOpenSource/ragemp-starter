@@ -4,12 +4,12 @@
  * Loads everything inside modules folder
  */
 
-const glob = require('glob');
+import glob from 'glob';
 import logger from '../utils/logger';
 
 module.exports = async () => {
   try {
-    glob.sync(__dirname + '/../modules/' + '/**/*.js').forEach((file: any) => {
+    glob.sync(__dirname + '/../modules/' + '/**/*.js').forEach((file: string) => {
       require(file);
     });
     logger('loaders', `Loaded modules successfully!`, 'info');

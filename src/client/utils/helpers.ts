@@ -7,7 +7,7 @@ const hiddenHudElements: number[] = [];
  * HUD components ID: https://wiki.rage.mp/index.php?title=HUD_Components
  * @param {array} array
  */
-const hideHudElements = (elements: any) => {
+const hideHudElements = (elements: number[]) => {
   for (let element of elements) {
     if (hiddenHudElements.indexOf(element) === -1) hiddenHudElements.push(element);
   }
@@ -27,7 +27,7 @@ mp.events.add('render', () => {
  * Game controls ID: https://wiki.rage.mp/index.php?title=Controls
  * @param {array} array
  */
-const disableControlActions = (controls: any) => {
+const disableControlActions = (controls: number[]) => {
   for (let control of controls) {
     mp.game.controls.disableControlAction(0, control, true);
   }

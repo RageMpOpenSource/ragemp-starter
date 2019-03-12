@@ -10,21 +10,21 @@ const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max 
 
 /**
  * Returns the player(s) that match the id or name provided
- * @param {string} idOrName Id or name of the player(s)
- * @return {PlayerMp | PlayerMp[] | undefined} Return a single a PlayerMp if only one is found,
- * an array of PlayerMp if multiple is found or undefined if none is found
+ * @param {string} idOrName Id or (part of the) name of the player
+ * @returns {PlayerMp | PlayerMp[] | undefined} Returns a single a PlayerMp if only one player is found,
+ * an array of PlayerMp if multiple players are found or undefined if none is found
  */
-const findPlayer = (idOrName: any) => {
-  if (!isNaN(idOrName))
+const findPlayer = (idOrName: string | number) => {
+  if (typeof idOrName == 'number')
     return mp.players.at(idOrName);
 
   var found: number = 0;
   var players: Array<PlayerMp> = [];
-  idOrName = idOrName.replace('_', ' ')
+  idOrName = idOrName.replace('_', ' ').toLowerCase()
 
   mp.players.forEach((player: PlayerMp) => {
-    const name = player.name.toLocaleLowerCase();
-    if (name.indexOf(idOrName.toLowerCase()) >= 0) {
+    const name = player.name.toLowerCase();
+    if (name.indexOf(idOrName.toString()) >= 0) {
       players.push(player);
       found++;
     }

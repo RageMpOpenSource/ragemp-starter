@@ -18,4 +18,4 @@ log4js.configure({
  * Allowed types: trace, debug, info, warn, error, fatal.
  */
 const loggerInstance = log4js.getLogger('[RAGE]');
-export default (moduleName: any, msg: any, type: any) => loggerInstance[type](`[${moduleName}] ${msg}`);
+export default (moduleName: string, msg: string, type: string) => loggerInstance[type](`[${moduleName}] ${msg}`);
