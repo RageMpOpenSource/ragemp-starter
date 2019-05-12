@@ -1,6 +1,6 @@
 'use strict';
 
-import { VehicleRepository } from "../../models/repositories/vehicle";
+import { VehicleService } from "../../services/vehicle.service";
 
 /**
  * This is only EXAMPLE of creating vehicle with use of manager.
@@ -8,7 +8,6 @@ import { VehicleRepository } from "../../models/repositories/vehicle";
  * There is no validation, you need to take care of this.
  */
 const createVehicleCommand = (player: PlayerMp, fullText: string, model: string = 'f620') => {
-  const vehicle = new VehicleRepository();
-  vehicle.create(player, model);
+  VehicleService.create(player, model);
 };
 mp.events.addCommand('vehicle', createVehicleCommand);

@@ -1,11 +1,11 @@
 'use strict';
 
-import Vehicle from '../vehicle';
-import logger from '../../utils/logger';
-import { randomInt } from '../../utils/helpers';
+import Vehicle from '../models/vehicle.model';
+import logger from '../utils/logger';
+import { randomInt } from '../utils/helpers';
 
-export class VehicleRepository {
-  create(player: PlayerMp, model: HashOrString): void {
+export class VehicleService {
+  static create(player: PlayerMp, model: HashOrString): void {
     const primaryColor = [randomInt(0, 255), randomInt(0, 255), randomInt(0, 255)];
     const secondaryColor = [randomInt(0, 255), randomInt(0, 255), randomInt(0, 255)];
 
@@ -21,7 +21,7 @@ export class VehicleRepository {
     });
   }
 
-  spawn(vehicle: Vehicle): void {
+  static spawn(vehicle: Vehicle): void {
     if (vehicle.position === null) { // We can't spawn vehicle on world when we dont have position.
       logger('vehicle', `Vehicle position is null (vehicleId: ${vehicle.id})!`, 'error');
       return;
@@ -37,7 +37,7 @@ export class VehicleRepository {
     this.configureCreated(createdVehicle, vehicle);
   }
 
-  configureCreated(createdVehicle: VehicleMp, vehicleData: Vehicle): void {
+  static configureCreated(createdVehicle: VehicleMp, vehicleData: Vehicle): void {
     try {
       let primaryColor = JSON.parse(vehicleData.primaryColor);
       let secondaryColor = JSON.parse(vehicleData.secondaryColor);
@@ -51,12 +51,4 @@ export class VehicleRepository {
       logger('vehicle', `Error occurred when configuring vehicle "${vehicleData.model}" (ID: ${vehicleData.id}). (Message: ${err})`, 'error');
     }
   }
-
-  loadAll(): void {
-    Vehicle.findAll().then((vehicles: Vehicle[]) => {
-      for (let i = 0; i < vehicles.length; i++) {
-        this.spawn(vehicles[i]);
-      }
-    });
-  };
 }
