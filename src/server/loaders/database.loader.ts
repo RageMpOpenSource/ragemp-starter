@@ -1,5 +1,3 @@
-'use strict';
-
 import logger from '../utils/logger';
 import { Sequelize } from 'sequelize-typescript';
 

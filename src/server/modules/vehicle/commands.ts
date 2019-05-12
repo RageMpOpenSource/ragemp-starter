@@ -1,5 +1,3 @@
-'use strict';
-
 import { VehicleService } from "../../services/vehicle.service";
 
 /**

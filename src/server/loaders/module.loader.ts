@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Loads everything inside modules folder
  */

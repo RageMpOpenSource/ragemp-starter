@@ -1,5 +1,3 @@
-'use strict';
-
 import Vehicle from '../models/vehicle.model';
 import logger from '../utils/logger';
 import { randomInt } from '../utils/helpers';
