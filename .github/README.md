@@ -16,7 +16,7 @@ Start your next project within seconds! This boilerplate accelerates the work yo
 	- Create database using Sequelize CLI: `sequelize db:create`.
 	- Type `npm run watch`. (migrations are run automatically!)
 	- Run watch tasks `tsc -w` or `Ctrl+Shift+B` on `src/server` and `src/client` folders.
-	- That's it! You are ready to develop. Any changes in files in `client_packages` or `packages` directory gonna automatically restart server! :sparkles:
+	- That's it! You are ready to develop. Any changes in files in `src/client` or `src/server` directory gonna automatically restart server! :sparkles:
 
 ## Front-end files
 Should be inside `src` folder or in a different repository linked by submodules, and then compiled to client_packages with gulp or something.
