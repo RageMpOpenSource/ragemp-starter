@@ -1,7 +1,7 @@
 'use strict';
 
 import logger from '../utils/logger';
-import { sequelize } from '../database/database';
+import { Sequelize } from 'sequelize-typescript';
 import { VehicleRepository } from '../models/repositories/vehicle';
 
 module.exports = async () => {
@@ -12,6 +12,16 @@ module.exports = async () => {
      * this has to be the first database function called
      * everything else should be called ONLY after this
      */
+    const sequelize = new Sequelize({
+      dialect: 'mysql',
+      operatorsAliases: Sequelize.Op as any,
+      database: <string>process.env.DATABASE_NAME,
+      username: <string>process.env.DATABASE_USER,
+      host: <string>process.env.DATABASE_HOST,
+      password: <string>process.env.DATABASE_PASSWORD,
+      modelPaths: [__dirname + '/../core/models'],
+      logging: JSON.parse(<string>process.env.DEBUG)
+    });
     await sequelize.sync();
 
     const vehicle = new VehicleRepository();

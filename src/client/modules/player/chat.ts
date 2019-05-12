@@ -1,6 +1,4 @@
-'use strict';
-
-const globals = require('./utils/globals');
+import globals from 'utils/globals';
 
 mp.events.add({
   clearChat: () => clearGameChat(),

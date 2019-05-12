@@ -1,4 +1,4 @@
-const { hideHudElements } = require('./utils/helpers');
+import { hideHudElements } from 'utils/helpers';
 
 /**
  * Docs about these two functions:
