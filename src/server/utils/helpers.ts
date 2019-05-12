@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Returns a random number between min and max (both included)
  * @param {number} min Minimum number
@@ -14,9 +12,9 @@ const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max 
  * @returns {PlayerMp | PlayerMp[] | undefined} Returns a single a PlayerMp if only one player is found,
  * an array of PlayerMp if multiple players are found or undefined if none is found
  */
-const findPlayer = (idOrName: string | number) => {
-  if (typeof idOrName == 'number')
-    return mp.players.at(idOrName);
+const findPlayer = (idOrName: string) => {
+  if (!isNaN(+idOrName))
+    return mp.players.at(+idOrName);
 
   var found: number = 0;
   var players: Array<PlayerMp> = [];
